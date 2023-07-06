@@ -40,10 +40,11 @@ def my_post():
         global negative
         negative += 1
     else:
-        global positive
-        positive += 1
+       global positive
+    positive += 1
     
     reviews.insert(0, text)
+    #refresh page
     return redirect(request.url)
 #run the program
 if __name__ == "__main__":
