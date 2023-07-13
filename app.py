@@ -10,7 +10,7 @@ data = dict()
 reviews = []
 positive = 0
 negative = 0
-#home page
+
 @app.route("/")
 def index():
     data['reviews'] = reviews
@@ -19,7 +19,6 @@ def index():
 
     logging.info('========== Open home page ============')
 
-#pass the data to html file
     return render_template('index.html', data=data)
 
 @app.route("/", methods = ['post'])
@@ -40,12 +39,11 @@ def my_post():
         global negative
         negative += 1
     else:
-       global positive
-    positive += 1
+        global positive
+        positive += 1
     
     reviews.insert(0, text)
-    #refresh page
     return redirect(request.url)
-#run the program
+
 if __name__ == "__main__":
     app.run()
